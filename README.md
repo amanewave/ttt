@@ -8,7 +8,7 @@
 npm start
 ```
 
-Страница доступна по адресу [localhost:3000](http://localhost:3000). Устанавливать пакеты не нужно. Вместо `npm start` можно выполнить `node server.mjs`.
+Локалка, не хостил
 
 Для модулей JavaScript и Web Worker нужен HTTP-сервер, поэтому открытие `index.html` через `file://` не подойдёт.
 
