@@ -1,6 +1,9 @@
 ﻿Крестики нолики с нейронкой
 
 ## Запуск
+```
+https://amanewave.github.io/ttt/
+```
 
 ```sh
 npm start
