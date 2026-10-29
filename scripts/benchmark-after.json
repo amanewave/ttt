@@ -1,0 +1,248 @@
+{
+  "seeds": [
+    42,
+    1337,
+    2026
+  ],
+  "evaluationSeed": 90210,
+  "evaluationGames": 400,
+  "runs": [
+    {
+      "seed": 42,
+      "games": 0,
+      "wins": 208,
+      "draws": 49,
+      "losses": 143,
+      "count": 400,
+      "tactics": {
+        "win": 0.48430873621713316,
+        "block": 0.382172131147541
+      },
+      "elapsedMs": 27
+    },
+    {
+      "seed": 42,
+      "games": 250,
+      "wins": 272,
+      "draws": 3,
+      "losses": 125,
+      "count": 400,
+      "tactics": {
+        "win": 0.7955894826123834,
+        "block": 0.1875
+      },
+      "elapsedMs": 261
+    },
+    {
+      "seed": 42,
+      "games": 500,
+      "wins": 314,
+      "draws": 0,
+      "losses": 86,
+      "count": 400,
+      "tactics": {
+        "win": 0.955470737913486,
+        "block": 0.19672131147540983
+      },
+      "elapsedMs": 481
+    },
+    {
+      "seed": 42,
+      "games": 1000,
+      "wins": 330,
+      "draws": 14,
+      "losses": 56,
+      "count": 400,
+      "tactics": {
+        "win": 0.9974554707379135,
+        "block": 0.47848360655737704
+      },
+      "elapsedMs": 912
+    },
+    {
+      "seed": 42,
+      "games": 2000,
+      "wins": 342,
+      "draws": 40,
+      "losses": 18,
+      "count": 400,
+      "tactics": {
+        "win": 0.9987277353689568,
+        "block": 0.7233606557377049
+      },
+      "elapsedMs": 1752
+    },
+    {
+      "seed": 1337,
+      "games": 0,
+      "wins": 208,
+      "draws": 49,
+      "losses": 143,
+      "count": 400,
+      "tactics": {
+        "win": 0.48430873621713316,
+        "block": 0.382172131147541
+      },
+      "elapsedMs": 19
+    },
+    {
+      "seed": 1337,
+      "games": 250,
+      "wins": 299,
+      "draws": 2,
+      "losses": 99,
+      "count": 400,
+      "tactics": {
+        "win": 0.7748091603053435,
+        "block": 0.16188524590163936
+      },
+      "elapsedMs": 240
+    },
+    {
+      "seed": 1337,
+      "games": 500,
+      "wins": 314,
+      "draws": 5,
+      "losses": 81,
+      "count": 400,
+      "tactics": {
+        "win": 0.899067005937235,
+        "block": 0.2530737704918033
+      },
+      "elapsedMs": 462
+    },
+    {
+      "seed": 1337,
+      "games": 1000,
+      "wins": 347,
+      "draws": 10,
+      "losses": 43,
+      "count": 400,
+      "tactics": {
+        "win": 0.996607294317218,
+        "block": 0.4334016393442623
+      },
+      "elapsedMs": 880
+    },
+    {
+      "seed": 1337,
+      "games": 2000,
+      "wins": 319,
+      "draws": 60,
+      "losses": 21,
+      "count": 400,
+      "tactics": {
+        "win": 0.9974554707379135,
+        "block": 0.742827868852459
+      },
+      "elapsedMs": 1762
+    },
+    {
+      "seed": 2026,
+      "games": 0,
+      "wins": 208,
+      "draws": 49,
+      "losses": 143,
+      "count": 400,
+      "tactics": {
+        "win": 0.48430873621713316,
+        "block": 0.382172131147541
+      },
+      "elapsedMs": 20
+    },
+    {
+      "seed": 2026,
+      "games": 250,
+      "wins": 285,
+      "draws": 8,
+      "losses": 107,
+      "count": 400,
+      "tactics": {
+        "win": 0.7430025445292621,
+        "block": 0.17418032786885246
+      },
+      "elapsedMs": 253
+    },
+    {
+      "seed": 2026,
+      "games": 500,
+      "wins": 349,
+      "draws": 13,
+      "losses": 38,
+      "count": 400,
+      "tactics": {
+        "win": 0.9007633587786259,
+        "block": 0.2694672131147541
+      },
+      "elapsedMs": 488
+    },
+    {
+      "seed": 2026,
+      "games": 1000,
+      "wins": 340,
+      "draws": 22,
+      "losses": 38,
+      "count": 400,
+      "tactics": {
+        "win": 0.9715860899067006,
+        "block": 0.5081967213114754
+      },
+      "elapsedMs": 999
+    },
+    {
+      "seed": 2026,
+      "games": 2000,
+      "wins": 331,
+      "draws": 46,
+      "losses": 23,
+      "count": 400,
+      "tactics": {
+        "win": 0.9847328244274809,
+        "block": 0.6413934426229508
+      },
+      "elapsedMs": 1915
+    }
+  ],
+  "summary": [
+    {
+      "games": 0,
+      "wins": 52,
+      "losses": 35.8,
+      "takeWin": 48.4,
+      "blockLoss": 38.2,
+      "elapsedMs": 22
+    },
+    {
+      "games": 250,
+      "wins": 71.3,
+      "losses": 27.6,
+      "takeWin": 77.1,
+      "blockLoss": 17.5,
+      "elapsedMs": 251
+    },
+    {
+      "games": 500,
+      "wins": 81.4,
+      "losses": 17.1,
+      "takeWin": 91.8,
+      "blockLoss": 24,
+      "elapsedMs": 477
+    },
+    {
+      "games": 1000,
+      "wins": 84.8,
+      "losses": 11.4,
+      "takeWin": 98.9,
+      "blockLoss": 47.3,
+      "elapsedMs": 930
+    },
+    {
+      "games": 2000,
+      "wins": 82.7,
+      "losses": 5.2,
+      "takeWin": 99.4,
+      "blockLoss": 70.3,
+      "elapsedMs": 1810
+    }
+  ]
+}

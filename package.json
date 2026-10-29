@@ -1,0 +1,12 @@
+{
+  "name": "nolik-neural-lab",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "benchmark": "node scripts/benchmark-training.mjs"
+  },
+  "license": "MIT"
+}

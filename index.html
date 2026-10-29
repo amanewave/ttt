@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8fb">
+  <meta name="description" content="Крестики-нолики с обучаемым соперником. Выбор первого хода, сохранение этапов и обучение на сыгранных партиях.">
+  <title>Крестики-нолики — Нолик</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="./" aria-label="Нолик, главная"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Нолик</a>
+      <div class="header-right"><button class="text-button" id="about-open">Правила и обучение</button><button class="button secondary" id="reset">Сбросить сессию</button></div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="intro"><h1>Крестики-нолики</h1><p>Играйте, обучайте соперника и сохраняйте разные уровни подготовки.</p></section>
+    <div class="main-grid">
+      <section class="game-card panel" aria-labelledby="game-title">
+        <div class="panel-heading"><h2 id="game-title">Партия</h2><span class="pill" id="turn-badge"><i></i> Ваш ход</span></div>
+        <div class="players">
+          <div class="player"><span class="mini-mark cross" id="human-mark" aria-hidden="true"></span><div><strong>Вы</strong><span id="human-subtitle">Крестики · первый ход</span></div></div>
+          <div class="player"><span class="mini-mark circle" id="ai-mark" aria-hidden="true"></span><div><strong>Соперник</strong><span id="opponent-caption">Без обучения</span></div></div>
+        </div>
+        <div class="board-wrap"><div class="board" id="board" role="group" aria-label="Поле для крестиков-ноликов, клетки с 1 по 9"></div><div class="training-overlay" id="training-overlay" hidden><div class="loader"></div><strong>Идёт обучение</strong><span>Игра будет доступна после тренировки</span></div></div>
+        <div class="game-message" id="game-message" role="status" aria-live="polite">Выбираем, кто начинает…</div>
+        <div class="game-toolbar"><label class="checkbox-label"><input id="show-probs" type="checkbox"> Вероятности ходов <span class="help" title="Вероятности выбора свободных клеток, если бы сейчас ходил соперник. Это не вероятность победы.">?</span></label><button class="button primary" id="new-game">Новая партия</button></div>
+        <div class="scoreboard"><div><strong id="score-human">0</strong><span>Ваши победы</span></div><div><strong id="score-draws">0</strong><span>Ничьи</span></div><div><strong id="score-ai">0</strong><span>Победы соперника</span></div></div>
+      </section>
+      <aside class="settings-column">
+        <section class="model-card panel" aria-labelledby="model-title">
+          <div class="panel-heading"><h2 id="model-title">Настройки игры</h2></div>
+          <div class="field"><label class="field-label" for="starter-select">Кто начинает</label><select id="starter-select"><option value="random" selected>Случайно</option><option value="human">Вы</option><option value="ai">Соперник</option></select><p class="field-hint">Выбирается перед каждой новой партией.<br>Первый игрок получает крестики.</p></div>
+          <div class="field"><label class="field-label" for="model-select">Уровень подготовки</label><select id="model-select"><option value="current">Текущая сеть · 0 партий</option></select><div class="model-info"><strong id="model-name">Без обучения</strong><p id="model-description">Начальные случайные веса.</p></div></div>
+          <div class="field confidence-field"><div class="range-heading"><label class="field-label" for="confidence">Уверенность выбора</label><output id="confidence-value" for="confidence">85%</output></div><input id="confidence" type="range" min="0" max="100" value="85" step="1"><div class="range-labels"><span>Случайнее</span><span>Точнее</span></div><p class="field-hint">Чем выше значение, тем чаще соперник выбирает ход с лучшей оценкой.</p></div>
+        </section>
+        <section class="train-card panel" aria-labelledby="train-title">
+          <div class="panel-heading"><h2 id="train-title">Обучение</h2></div>
+          <div class="auto-learning"><div><label for="auto-learn">Учиться после наших партий</label><p>Обновлять текущую сеть по результату игры</p></div><label class="switch"><input id="auto-learn" type="checkbox" checked aria-label="Учиться после наших партий"><span></span></label></div>
+          <div class="divider"></div><label class="field-label" for="batch-size">Тренировка с самим собой</label><div class="train-controls"><select id="batch-size"><option value="100">100 партий</option><option value="1000" selected>1 000 партий</option><option value="5000">5 000 партий</option><option value="10000">10 000 партий</option></select><button class="button primary" id="train">Обучить</button></div>
+          <div class="training-progress" id="training-progress" hidden><div><span id="training-status">Подготовка…</span><button id="stop-training" class="text-button">Остановить</button></div><progress id="progress" value="0" max="100"></progress></div><p class="field-hint" id="train-hint">После тренировки новый этап сохранится автоматически.</p>
+        </section>
+      </aside>
+    </div>
+    <section class="journey panel" aria-labelledby="journey-title">
+      <div class="journey-header"><h2 id="journey-title">Прогресс обучения</h2><button class="button secondary" id="save-snapshot">Сохранить этап</button></div>
+      <div class="journey-content"><div class="experience"><span class="field-label">Всего обучающих партий</span><div><strong id="total-games">0</strong><span>партий</span></div><span class="experience-caption" id="experience-caption">Сохранено этапов: 1 из 8</span></div><div class="chart-area"><div class="chart-top"><span>Победы против случайного игрока</span><strong id="eval-value">—</strong></div><div id="chart" class="chart"><div class="empty-chart"><span>Нет результатов проверки</span><small>Запустите обучение или завершите партию</small></div></div><div class="chart-bottom"><span>0 партий</span><span id="chart-end">0 партий</span></div></div></div>
+      <div class="journey-footer"><span id="snapshot-summary"><i></i> Прогресс сохраняется в этом браузере</span><div><button class="text-button" id="export-data">Экспорт</button><label class="text-button import-label" tabindex="0" role="button" id="import-label">Импорт<input id="import-data" type="file" accept="application/json,.json" hidden></label></div></div>
+    </section>
+    <footer class="site-footer"><span>Нолик · Крестики-нолики</span><span>Клавиши 1–9 — выбор клетки</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <dialog id="about-dialog"><button class="dialog-close" data-close="about-dialog" aria-label="Закрыть">×</button><h2>Правила и обучение</h2><p>Соберите три своих знака в ряд: по горизонтали, вертикали или диагонали. Крестики ходят первыми. В настройках можно выбрать, кто начинает, или разыгрывать первый ход случайно перед каждой партией.</p><p><strong>Уровень подготовки</strong> — текущая сеть или сохранённая копия её весов. Сохранённые этапы не меняются; новые партии обучают текущую сеть.</p><p><strong>Уверенность</strong> меняет случайность выбора хода. Проценты на поле — вероятность выбора клетки, если бы сейчас ходил соперник, а не вероятность победы.</p><p><strong>Тренировка</strong> запускает игры сети с собой. Её можно остановить и сохранить уже полученный опыт. Во время тренировки поле недоступно.</p><p><strong>График</strong> показывает долю побед в 120 тестовых играх против случайного игрока с чередованием сторон. Результаты обучения могут колебаться.</p><details><summary>Устройство сети</summary><p>Нейросеть DQN: 27 входов, скрытый слой из 48 нейронов и 9 оценок ходов. Начальные веса случайны. После партий сеть обновляет их по результату игры. Используются память прошлых ходов, повороты и отражения поля.</p></details><p class="dialog-note">Прогресс хранится в этом браузере. Экспорт позволяет сохранить копию. «Сбросить сессию» удаляет обучение, этапы и счёт.</p></dialog>
+  <dialog id="reset-dialog"><h2>Сбросить сессию?</h2><p>Будут обнулены счёт и обучение, удалены сохранённые этапы и очищено поле. Если идёт тренировка, она остановится. Перед сбросом можно сохранить прогресс через «Экспорт».</p><div class="dialog-actions"><button class="button secondary" data-close="reset-dialog">Отмена</button><button class="button danger" id="confirm-reset">Сбросить сессию</button></div></dialog>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
